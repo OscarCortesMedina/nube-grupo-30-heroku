@@ -1,1 +1,1 @@
-web: uwsgi uwsgi.ini 
+web: flask run -h=0.0.0.0
