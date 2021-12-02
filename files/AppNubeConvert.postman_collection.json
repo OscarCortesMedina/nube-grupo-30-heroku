@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "6d06cd35-5f66-4b64-9993-d2ad49d349ae",
+		"name": "AppNubeConvert",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "createTask",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "Caribou - Sun (Kastis Torrau & Arnas D Remix).mp3"
+						},
+						{
+							"key": "newformat",
+							"value": "wma",
+							"type": "text"
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/api/tasks",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "# api para crear una tarea\n\n# body format-data: \n## file:\nArchivo a cargar (file)\n## newformat: \nformato a transformar sin \".\" (string)\n## requiere bearen token"
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"johanuao@gmail.com\",\r\n    \"password\":\"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/auth/login",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "api para logerse y obtener el token para las tareas que requieren autenticacion,\nrequiere email y contraseña valida"
+			},
+			"response": []
+		},
+		{
+			"name": "SignUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"juan\",\r\n    \"email\":\"johanuao@gmail.com\",\r\n    \"password1\":\"123456789\",\r\n    \"password2\":\"123456789\"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/auth/signup",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"signup"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "api para crear el usuario\npasword1 y password2 para validar contraseña"
+			},
+			"response": []
+		},
+		{
+			"name": "download file",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/api/files/test/1",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"files",
+						"test",
+						"1"
+					]
+				},
+				"description": "# descripcion url\n/api/files/<string:filename>/<int:typefile>\n\n# filename\nel nombre del archivo a descargar sin extension \n# typefile: \nnumero entero: 1 para original y 2 para el archivo convertido"
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllTasks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/api/tasks",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks"
+					]
+				},
+				"description": "api para traer todas las tareas de un usuario"
+			},
+			"response": []
+		},
+		{
+			"name": "GetoneTasks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/api/tasks/7",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks",
+						"7"
+					]
+				},
+				"description": "# descripcion url\n/api/tasks/<int:id_tarea>\n\n# idtarea:\nnumero entero que corresponde al id de la tarea"
+			},
+			"response": []
+		},
+		{
+			"name": "updateTasks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"newFormat\":\"acc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/api/tasks/7",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks",
+						"7"
+					]
+				},
+				"description": "# descripcion url\n\n/api/tasks/<int:id_tarea>\n\n# id tarea:\nid de la tarea a actualizar\ny un body con new format a actualizar"
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTask",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/api/tasks/1",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"api",
+						"tasks",
+						"1"
+					]
+				},
+				"description": "# descripcion url\n/api/tasks/<int:id_tarea>\n\n# id tarea: \nid tarea valido a borrar."
+			},
+			"response": []
+		},
+		{
+			"name": "id maquina",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/id",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"id"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/health",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAllTask",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{tipo}}{{urlBackend}}:{{port}}/id",
+					"host": [
+						"{{tipo}}{{urlBackend}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"id"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
