@@ -1,7 +1,7 @@
 import boto3
 import uuid
 
-from ..constants import QUEUE_URL
+from constants import QUEUE_URL
 
 
 ATTRIBUTE_NAME = 'taskId'

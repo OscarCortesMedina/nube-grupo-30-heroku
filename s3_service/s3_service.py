@@ -1,5 +1,5 @@
 import boto3
-from ..constants import BUCKET, UPLOAD_FOLDER
+from constants import BUCKET, UPLOAD_FOLDER
 
 
 def uploadFile(filename, data):

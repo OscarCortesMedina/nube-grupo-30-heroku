@@ -1,11 +1,11 @@
 
 from flask import request, send_file
 
-from ..constants import UPLOAD_FOLDER
+from constants import UPLOAD_FOLDER
 
-from ..sqs_service import sendMessageToQueue
-from ..s3_service import downloadFile, uploadFile, deleteFile
-from ..modelos import db, User, UsuarioSchema, Task, TaskSchema
+from sqs_service import sendMessageToQueue
+from s3_service import downloadFile, uploadFile, deleteFile
+from modelos import db, User, UsuarioSchema, Task, TaskSchema
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
 from werkzeug.utils import secure_filename
