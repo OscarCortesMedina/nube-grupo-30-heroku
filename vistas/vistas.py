@@ -1,7 +1,7 @@
 
 from flask import request, send_file
 
-from constants.constants import UPLOAD_FOLDER
+from ..constants import UPLOAD_FOLDER
 
 from ..sqs_service import sendMessageToQueue
 from ..s3_service import downloadFile, uploadFile, deleteFile

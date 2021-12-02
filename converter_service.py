@@ -1,4 +1,4 @@
-from constants.constants import UPLOAD_FOLDER
+from ..constants import UPLOAD_FOLDER
 from converter.conversor_audio import convert_audio_os
 from converter_service.db_file_service import change_task_to_processed, search_file_to_convert
 from s3_service import uploadFile, downloadFile

@@ -1,7 +1,7 @@
 from warnings import catch_warnings
 import os
 
-from constants.constants import FILE_ROUTE
+from ..constants import FILE_ROUTE
 
 OUT_PATH = FILE_ROUTE
 IN_PATH = FILE_ROUTE

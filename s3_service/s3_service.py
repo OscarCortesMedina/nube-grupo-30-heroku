@@ -1,6 +1,5 @@
 import boto3
-from constants.constants import BUCKET
-from vistas.vistas import UPLOAD_FOLDER
+from ..constants import BUCKET, UPLOAD_FOLDER
 
 
 def uploadFile(filename, data):

@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-from constants.constants import DB_PASS, DB_URL, DB_USER, TYPE
+from ..constants import DB_PASS, DB_URL, DB_USER, TYPE
 
 
 engine = create_engine(
