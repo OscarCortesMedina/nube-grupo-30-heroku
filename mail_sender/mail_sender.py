@@ -2,8 +2,10 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-sender_email = "arquitecturagilgrupo15@gmail.com"
-password = "@A8p6WiY4PRozHbihtqDRv3d"
+from constants.constants import EMAIL, EMAIL_PASS, EMAIL_TEST
+
+sender_email = EMAIL
+password = EMAIL_PASS
 
 message = MIMEMultipart("alternative")
 message["From"] = "Servicio de conversión Grupo 30"
@@ -51,7 +53,7 @@ def send_email(username, email, filename, in_extension, out_extension):
 
 
 def send_email_tareas():
-    receiver_email = ["dantecortesm6@gmail.com"]
+    receiver_email = [EMAIL_TEST]
     message["To"] = ", ".join(receiver_email)
 
     message["Subject"] = "Termino prueba de carga"

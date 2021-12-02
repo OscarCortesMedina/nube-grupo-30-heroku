@@ -1,8 +1,9 @@
 import boto3
 import uuid
 
-BUCKET = 's3-grupo-30'
-QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/141348617543/lista-tareas-grupo-30.fifo'
+from constants.constants import QUEUE_URL
+
+
 ATTRIBUTE_NAME = 'taskId'
 client = boto3.client('sqs', region_name='us-east-1')
 

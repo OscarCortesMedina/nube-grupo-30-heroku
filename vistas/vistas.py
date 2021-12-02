@@ -1,6 +1,8 @@
 
 from flask import request, send_file
 
+from constants.constants import UPLOAD_FOLDER
+
 from ..sqs_service import sendMessageToQueue
 from ..s3_service import downloadFile, uploadFile, deleteFile
 from ..modelos import db, User, UsuarioSchema, Task, TaskSchema
@@ -17,7 +19,6 @@ task_schema = TaskSchema()
 
 UUID = str(uuid.uuid4())
 ALLOWED_EXTENSIONS = {'mp3', 'aac', 'ogg', 'wav', 'wma'}
-UPLOAD_FOLDER = '/home/ubuntu/Proyecto-Grupo30-202120/files-handler/'
 
 
 class VistaLogIn(Resource):

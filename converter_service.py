@@ -1,11 +1,10 @@
+from constants.constants import UPLOAD_FOLDER
 from converter.conversor_audio import convert_audio_os
 from converter_service.db_file_service import change_task_to_processed, search_file_to_convert
 from s3_service import uploadFile, downloadFile
 import os
 
 from sqs_service.sqs_service import deleteMessageOfQueue, getMessageOfQueue
-
-UPLOAD_FOLDER = '/home/ubuntu/Proyecto-Grupo30-202120/files-handler/'
 
 
 def fileConverterHandler(fileName, format):
