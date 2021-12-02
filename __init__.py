@@ -6,6 +6,7 @@ from .constants import DB_PASS, DB_URL, DB_USER, TYPE, UPLOAD_FOLDER
 
 def create_app(config_name):
     app = Flask(__name__)
+    app.run(host='0.0.0.0')
     print(TYPE + '://'+DB_USER+':'+DB_PASS+'@'+DB_URL)
     app.config['SQLALCHEMY_DATABASE_URI'] = TYPE + \
         '://'+DB_USER+':'+DB_PASS+'@'+DB_URL
