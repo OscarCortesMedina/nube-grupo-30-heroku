@@ -1,7 +1,7 @@
 from warnings import catch_warnings
 import os
 
-from ..constants import UPLOAD_FOLDER
+from constants import UPLOAD_FOLDER
 
 OUT_PATH = UPLOAD_FOLDER
 IN_PATH = UPLOAD_FOLDER
