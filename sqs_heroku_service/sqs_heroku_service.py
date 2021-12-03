@@ -12,9 +12,6 @@ def getMessageOfQueue(callback):
     channel = connection.channel()
     channel.queue_declare(queue=QUEUE_NAME)
 
-    def callback(ch, method, properties, body):
-        print("Received " + str(body))
-
     channel.basic_consume(QUEUE_NAME,
                           callback,
                           auto_ack=True)
