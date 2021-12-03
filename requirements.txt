@@ -14,3 +14,4 @@ pydub==0.25.1
 pymysql==1.0.2
 boto3==1.20.5
 uwsgi
+pika==1.2.0

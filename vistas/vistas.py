@@ -2,9 +2,8 @@
 from flask import request, send_file
 
 from constants import UPLOAD_FOLDER
-
-from sqs_service import sendMessageToQueue
-from s3_service import downloadFile, uploadFile, deleteFile
+from sqs_heroku_service import sendMessageToQueue
+from s3_service import uploadFile, deleteFile, downloadFile
 from modelos import db, User, UsuarioSchema, Task, TaskSchema
 from flask_restful import Resource
 from flask_jwt_extended import jwt_required, create_access_token, get_jwt_identity
@@ -94,7 +93,7 @@ class VistaDownloadFile(Resource):
             'wma': "audio/x-ms-wma"
         }
         mime = switcher.get(extension, "Invalid month")
-        os.system('sudo rm '+UPLOAD_FOLDER+'*')
+        os.system('rm '+UPLOAD_FOLDER+'*')
         downloadFile(filecode)
         result = send_file(UPLOAD_FOLDER+filecode,  # nombre real del archivo
                            mimetype=mime,  # use appropriate type based on file

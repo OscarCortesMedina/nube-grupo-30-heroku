@@ -1,10 +1,10 @@
 from warnings import catch_warnings
 import os
 
-from ..constants import FILE_ROUTE
+from ..constants import UPLOAD_FOLDER
 
-OUT_PATH = FILE_ROUTE
-IN_PATH = FILE_ROUTE
+OUT_PATH = UPLOAD_FOLDER
+IN_PATH = UPLOAD_FOLDER
 
 
 def convert_audio_os(filecode, out_extension):
