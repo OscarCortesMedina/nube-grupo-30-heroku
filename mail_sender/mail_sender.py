@@ -2,7 +2,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-from ..constants import EMAIL, EMAIL_PASS, EMAIL_TEST
+from constants import EMAIL, EMAIL_PASS, EMAIL_TEST
 
 sender_email = EMAIL
 password = EMAIL_PASS
