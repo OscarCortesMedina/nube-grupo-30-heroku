@@ -17,8 +17,8 @@ def fileConverterHandler(fileName, format):
 
 
 def processTaskFromQueue(ch, method, properties, body):
-    print('incoming message '+body)
-    task = search_file_to_convert(body)
+    print('incoming message '+str(body))
+    task = search_file_to_convert(int(body))
     if task == None:
         print("No task to process")
     else:
